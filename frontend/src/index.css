@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand (indigo/violet hue) */
+  --color-brand-50: oklch(97% 0.02 265);
+  --color-brand-100: oklch(93% 0.05 265);
+  --color-brand-200: oklch(86% 0.09 265);
+  --color-brand-300: oklch(76% 0.14 265);
+  --color-brand-400: oklch(66% 0.18 265);
+  --color-brand-500: oklch(56% 0.22 265);
+  --color-brand-600: oklch(47% 0.22 265);
+  --color-brand-700: oklch(39% 0.18 265);
+  --color-brand-800: oklch(31% 0.14 265);
+  --color-brand-900: oklch(22% 0.10 265);
+
+  /* Surface (dark neutrals) */
+  --color-surface-950: oklch(8% 0.02 265);
+  --color-surface-900: oklch(12% 0.03 265);
+  --color-surface-800: oklch(17% 0.03 265);
+  --color-surface-700: oklch(24% 0.03 265);
+  --color-surface-600: oklch(33% 0.03 265);
+  --color-surface-500: oklch(44% 0.03 265);
+  --color-surface-400: oklch(55% 0.02 265);
+  --color-surface-300: oklch(68% 0.02 265);
+  --color-surface-200: oklch(80% 0.01 265);
+  --color-surface-100: oklch(92% 0.01 265);
+
+  /* Accents */
+  --color-accent-cyan: oklch(72% 0.17 195);
+  --color-accent-violet: oklch(65% 0.25 295);
+  --color-accent-emerald: oklch(70% 0.19 155);
+  --color-accent-amber: oklch(80% 0.17 75);
+  --color-accent-rose: oklch(65% 0.22 15);
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Border radius */
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+/* ── Base reset ─────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: oklch(8% 0.02 265);
+  color: oklch(92% 0.01 265);
+  scroll-behavior: smooth;
+}
+
+/* ── Custom scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: oklch(12% 0.03 265); }
+::-webkit-scrollbar-thumb { background: oklch(33% 0.03 265); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: oklch(47% 0.22 265); }
+
+/* ── Monospace ───────────────────────────────────────────── */
+code, pre, .code { font-family: var(--font-mono); }
+
+/* ── Glassmorphism ───────────────────────────────────────── */
+.glass {
+  background: oklch(17% 0.03 265 / 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid oklch(33% 0.03 265 / 0.5);
+}
+
+.glass-hover:hover {
+  background: oklch(24% 0.03 265 / 0.8);
+  border-color: oklch(47% 0.22 265 / 0.4);
+  transition: all 0.2s ease;
+}
+
+/* ── Gradient text ───────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, oklch(72% 0.17 195), oklch(65% 0.25 295));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glow effects ────────────────────────────────────────── */
+.glow-brand {
+  box-shadow: 0 0 20px oklch(56% 0.22 265 / 0.3);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px oklch(72% 0.17 195 / 0.3);
+}
+
+/* ── Animations ──────────────────────────────────────────── */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease forwards;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 10px oklch(56% 0.22 265 / 0.2); }
+  50%       { box-shadow: 0 0 30px oklch(56% 0.22 265 / 0.5); }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes border-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

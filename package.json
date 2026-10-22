@@ -1,0 +1,12 @@
+{
+  "name": "repointel",
+  "version": "1.0.0",
+  "description": "Repository Intelligence Platform",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "build:backend": "npm --prefix backend run build",
+    "build:frontend": "npm --prefix frontend run build",
+    "seed": "node scripts/seed-test-user.cjs"
+  }
+}
